@@ -233,7 +233,8 @@ UNINSTALL_SCRIPT() {
 
       if [[ -L "$DST" ]]; then
         _PRINT_INFO "[ rm" $DST "]"
-        rm -i $DST 2> >(sed $'s,.*,\e[31m&\e[m,'>&1)
+        #rm -i $DST 2> >(sed $'s,.*,\e[31m&\e[m,'>&1)
+	_PRINT_INFO $(rm -i $DST)
         if [[ -e "$DST$BACKUP_EXT" ]]; then
           _PRINT_INFO "[ mv" $DST$BACKUP_EXT $DST "]"
           mv $DST$BACKUP_EXT $DST 2> >(sed $'s,.*,\e[31m&\e[m,'>&1)
